@@ -25,11 +25,11 @@ if __name__ == "__main__":
     time.sleep(2)
 
     cluster = Cluster("Cluster Teste")
-    master = MasterNode("Master", 4, 4000, 10000, cluster)
+    master = MasterNode("Master", 8, 4000, 10000, cluster)
     cluster.addNode(master)
-    worker1 = WorkerNode("Worker1", 3, 2000, 5000)
+    worker1 = WorkerNode("Worker1", 4, 2000, 5000)
     cluster.addNode(worker1)
-    worker2 = WorkerNode("Worker2", 3, 2000, 5000)
+    worker2 = WorkerNode("Worker2", 4, 2000, 5000)
     cluster.addNode(worker2)
     addMultiplePods(40, cluster)
 
