@@ -13,8 +13,8 @@ def addMultiplePods (quant, cluster):
     for i in range(quant):
         name = f"{random.choice(podNamesAdjectives)}{random.choice(podNames)}"
         cpuRequest = random.randint(1, 2)
-        memoryRequest = random.randint(100, 1500)
-        diskRequest = random.randint(100, 4000)
+        memoryRequest = random.randint(100, 1000)
+        diskRequest = random.randint(100, 2500)
         containerImage = random.choice(["ubuntu", "debian", "alpine", "centos", "nginx", "httpd", "mysql", "postgres", "redis", "mongo", "node", "python", "golang", "ruby", "php"])
 
         pod = Pod(name, cpuRequest, memoryRequest, diskRequest, containerImage)
@@ -27,9 +27,9 @@ if __name__ == "__main__":
     cluster = Cluster("Cluster Teste")
     master = MasterNode("Master", 8, 4000, 10000, cluster)
     cluster.addNode(master)
-    worker1 = WorkerNode("Worker1", 4, 2000, 5000)
+    worker1 = WorkerNode("Worker1", 3, 2000, 5000)
     cluster.addNode(worker1)
-    worker2 = WorkerNode("Worker2", 4, 2000, 5000)
+    worker2 = WorkerNode("Worker2", 3, 2000, 5000)
     cluster.addNode(worker2)
     addMultiplePods(40, cluster)
 
