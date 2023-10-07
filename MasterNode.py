@@ -69,7 +69,6 @@ class MasterNode(Node):
 
                 try:
                     bestNode.allocatePod(pod)
-                    thread = threading.Thread
                     print(f"Pod {pod.name} scheduled to node {bestNode.name}")
                 except Exception as error:
                     print(f"Error scheduling pod {pod.name} into node {bestNode.name}: {error}\n")
